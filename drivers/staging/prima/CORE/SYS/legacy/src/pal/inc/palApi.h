@@ -325,7 +325,7 @@ eHalStatus palZeroMemory( tHddHandle hHdd, void *pMemory, tANI_U32 numBytes )
     locations are equal or now equal.
 
   -------------------------------------------------------------------------------*/
-tANI_BOOLEAN palEqualMemory( tHddHandle hHdd, void *pMemory1, void *pMemory2, tANI_U32 numBytes );
+tANI_BOOLEAN palEqualMemory( tHddHandle hHdd, const void *pMemory1, const void *pMemory2, tANI_U32 numBytes );
 
 /** ---------------------------------------------------------------------------
 

@@ -101,7 +101,7 @@ eHalStatus palCopyMemory( tHddHandle hHdd, void *pDst, const void *pSrc, tANI_U3
 
 
 
-tANI_BOOLEAN palEqualMemory( tHddHandle hHdd, void *pMemory1, void *pMemory2, tANI_U32 numBytes )
+tANI_BOOLEAN palEqualMemory( tHddHandle hHdd, const void *pMemory1, const void *pMemory2, tANI_U32 numBytes )
 {
    return( vos_mem_compare( pMemory1, pMemory2, numBytes ) );
 }   

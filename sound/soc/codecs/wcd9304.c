@@ -3349,7 +3349,7 @@ static s16 sitar_get_current_v_hs_max(struct sitar_priv *sitar)
 
 static void sitar_codec_calibrate_hs_polling(struct snd_soc_codec *codec)
 {
-	u8 *n_ready, *n_cic;
+	const u8 *n_ready, *n_cic;
 	struct sitar_mbhc_btn_detect_cfg *btn_det;
 	struct sitar_priv *sitar = snd_soc_codec_get_drvdata(codec);
 
@@ -4364,7 +4364,7 @@ void sitar_mbhc_cal(struct snd_soc_codec *codec)
 	u8 ncic, nmeas, navg;
 	u32 mclk_rate;
 	u32 dce_wait, sta_wait;
-	u8 *n_cic;
+	const u8 *n_cic;
 	void *calibration;
 
 	sitar = snd_soc_codec_get_drvdata(codec);
@@ -4472,10 +4472,10 @@ void sitar_mbhc_cal(struct snd_soc_codec *codec)
 	sitar_turn_onoff_rel_detection(codec, true);
 }
 
-void *sitar_mbhc_cal_btn_det_mp(const struct sitar_mbhc_btn_detect_cfg* btn_det,
+const void *sitar_mbhc_cal_btn_det_mp(const struct sitar_mbhc_btn_detect_cfg* btn_det,
 				const enum sitar_mbhc_btn_det_mem mem)
 {
-	void *ret = &btn_det->_v_btn_low;
+	const void *ret = &btn_det->_v_btn_low;
 
 	switch (mem) {
 	case SITAR_BTN_DET_GAIN:
@@ -4518,8 +4518,8 @@ static void sitar_mbhc_calc_thres(struct snd_soc_codec *codec)
 	s16 btn_mv = 0, btn_delta_mv;
 	struct sitar_mbhc_btn_detect_cfg *btn_det;
 	struct sitar_mbhc_plug_type_cfg *plug_type;
-	u16 *btn_high;
-	u8 *n_ready;
+	const u16 *btn_high;
+	const u8 *n_ready;
 	int i;
 
 	sitar = snd_soc_codec_get_drvdata(codec);
@@ -4576,7 +4576,7 @@ void sitar_mbhc_init(struct snd_soc_codec *codec)
 	struct sitar_mbhc_general_cfg *generic;
 	struct sitar_mbhc_btn_detect_cfg *btn_det;
 	int n;
-	u8 *n_cic, *gain;
+	const u8 *n_cic, *gain;
 
 	pr_err("%s(): ENTER\n", __func__);
 	sitar = snd_soc_codec_get_drvdata(codec);
